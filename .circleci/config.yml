@@ -11,8 +11,10 @@ jobs:
       - run:
           name: Build docker images
           command: docker build -t syncthing .
-
   publish_docker_images:
+    docker:
+      - image: cimg/base:stable
+    steps:
       - setup_remote_docker:
           version: 20.10.11
           docker_layer_caching: true
