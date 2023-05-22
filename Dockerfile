@@ -9,8 +9,7 @@ RUN curl --location \
   mv syncthing-${SYNCTHING_VERSION} /src
 
 WORKDIR /src
-RUN CGO_ENABLED=0 BUILD_USER=docker \
-      go run build.go -no-upgrade build syncthing
+RUN CGO_ENABLED=0 BUILD_USER=docker go run build.go -no-upgrade build syncthing
 
 FROM alpine:3.15 AS deploy
 
