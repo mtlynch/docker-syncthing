@@ -1,0 +1,42 @@
+version: 2.1
+jobs:
+  build_docker_images:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - checkout
+      - setup_remote_docker:
+          version: 20.10.11
+          docker_layer_caching: true
+      - run:
+          name: Build docker images
+          command: docker build -t syncthing .
+
+  publish_docker_images:
+      - setup_remote_docker:
+          version: 20.10.11
+          docker_layer_caching: true
+      - run:
+          name: Log in to Docker Hub
+          command: |
+            echo "${DOCKERHUB_ACCESS_TOKEN}" | \
+              docker login --username "${DOCKERHUB_USERNAME}" --password-stdin
+      - run:
+          name: Push tagged docker image
+          command: docker push "mtlynch/picoshare:${CIRCLE_TAG}"
+      - run:
+          name: Update latest docker image
+          command: docker push mtlynch/picoshare:latest
+workflows:
+  version: 2
+  test_deploy:
+    jobs:
+      - build_docker_images
+      - publish_docker_images:
+          requires:
+            - build_docker_images
+          filters:
+            tags:
+              only: /[0-9]+(\.[0-9]+){2}/
+            branches:
+              ignore: /.*/
