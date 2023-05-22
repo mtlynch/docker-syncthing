@@ -1,6 +1,6 @@
 # docker-syncthing
 
-[![CircleCI](https://circleci.com/gh/mtlynch/syncthing.svg?style=svg)](https://circleci.com/gh/mtlynch/syncthing)
+[![CircleCI](https://circleci.com/gh/mtlynch/docker-syncthing.svg?style=svg)](https://circleci.com/gh/mtlynch/docker-syncthing)
 [![Docker Version](https://img.shields.io/docker/v/mtlynch/syncthing?sort=semver&maxAge=86400)](https://hub.docker.com/r/mtlynch/syncthing/)
 [![Docker Pulls](https://img.shields.io/docker/pulls/mtlynch/syncthing.svg?maxAge=604800)](https://hub.docker.com/r/mtlynch/syncthing/)
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](LICENSE)
