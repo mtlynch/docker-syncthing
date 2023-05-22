@@ -25,15 +25,18 @@ jobs:
               docker login --username "${DOCKERHUB_USERNAME}" --password-stdin
       - run:
           name: Push tagged docker image
-          command: docker push "mtlynch/picoshare:${CIRCLE_TAG}"
+          command: docker push "mtlynch/syncthing:${CIRCLE_TAG}"
       - run:
           name: Update latest docker image
-          command: docker push mtlynch/picoshare:latest
+          command: docker push mtlynch/syncthing:latest
 workflows:
   version: 2
   test_deploy:
     jobs:
-      - build_docker_images
+      - build_docker_images:
+          filters:
+            tags:
+              only: /.*/
       - publish_docker_images:
           requires:
             - build_docker_images
