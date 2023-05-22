@@ -28,7 +28,7 @@ jobs:
           command: docker push "mtlynch/syncthing:${CIRCLE_TAG}"
       - run:
           name: Update latest docker image
-          command: docker push mtlynch/picoshare:latest
+          command: docker push mtlynch/syncthing:latest
 workflows:
   version: 2
   test_deploy:
