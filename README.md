@@ -11,7 +11,7 @@ Unofficial Docker image of syncthing
 
 This is a Docker image for Syncthing built specifically for [deploying on fly.io](https://github.com/mtlynch/syncthing-fly.io).
 
-For a more general-purpose Syncthing Docker image, see [linuxserver/docker-syncthing](https://github.com/linuxserver/docker-syncthing).
+For a more general-purpose Syncthing Docker image, see [the official Syncthing Docker image](https://hub.docker.com/r/syncthing/syncthing/tags) or [linuxserver/docker-syncthing](https://github.com/linuxserver/docker-syncthing) [linuxserver/docker-syncthing](https://github.com/linuxserver/docker-syncthing).
 
 ## Build from source
 
